@@ -23,7 +23,7 @@ git commit -m "chore: initial commit"
 
 - Go to [github.com/new](https://github.com/new)
 - Repository name: `django-basecoat`
-- Description: `Ready-made Basecoat components (shad/cn) for Django, powered by django-cotton`
+- Description: `Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton`
 
 ### 3.2. Configure Tokens
 

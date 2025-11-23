@@ -1,4 +1,4 @@
-"""Ready-made Basecoat components (shad/cn) for Django, powered by django-cotton"""
+"""Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton"""
 
 from __future__ import annotations
 

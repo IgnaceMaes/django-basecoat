@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "django-basecoat"
 dynamic = ["version"]
-description = "Ready-made Basecoat components (shad/cn) for Django, powered by django-cotton"
+description = "Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton"
 readme = "README.md"
 license = {text = "MIT"}
 

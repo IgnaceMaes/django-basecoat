@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 # django-basecoat
 
-Ready-made Basecoat components (shad/cn) for Django, powered by django-cotton
+Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton
 
 ## Documentation
 
