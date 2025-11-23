@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Basecoat Demo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Basecoat CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/basecoat.cdn.min.css">
+    
+    <!-- Basecoat JS -->
+    <script src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/all.min.js" defer></script>
+</head>
+<body class="min-h-screen bg-background flex items-center justify-center p-8">
+    <div class="max-w-2xl w-full text-center space-y-8">
+        <div class="space-y-4">
+            <h1 class="text-6xl font-bold">Django Basecoat</h1>
+            <p class="text-xl text-muted-foreground">
+                Ready-made Basecoat components for Django, powered by django-cotton
+            </p>
+        </div>
+
+        <div class="flex justify-center gap-4">
+            <c-button href="{% url 'demo_app:demo' %}" variant="default" size="lg">
+                View Component Demo
+            </c-button>
+            <c-button href="https://github.com/IgnaceMaes/django-basecoat" variant="outline" size="lg">
+                View on GitHub
+            </c-button>
+        </div>
+
+        <div class="pt-12">
+            <c-card>
+                <c-card.header>
+                    <h2 class="text-2xl font-semibold">What is Django Basecoat?</h2>
+                </c-card.header>
+                <c-card.section>
+                    <p class="text-muted-foreground">
+                        Django Basecoat provides beautiful, accessible UI components built with Basecoat CSS
+                        and integrated seamlessly with Django through django-cotton. No JavaScript framework required.
+                    </p>
+                </c-card.section>
+            </c-card>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 pt-8">
+            <c-card>
+                <c-card.section>
+                    <div class="space-y-2">
+                        <div class="text-3xl">🎨</div>
+                        <h3 class="font-semibold">Beautiful Design</h3>
+                        <p class="text-sm text-muted-foreground">
+                            Pre-styled components based on shadcn/ui design system
+                        </p>
+                    </div>
+                </c-card.section>
+            </c-card>
+
+            <c-card>
+                <c-card.section>
+                    <div class="space-y-2">
+                        <div class="text-3xl">♿</div>
+                        <h3 class="font-semibold">Accessible</h3>
+                        <p class="text-sm text-muted-foreground">
+                            Built with WAI-ARIA guidelines and keyboard navigation
+                        </p>
+                    </div>
+                </c-card.section>
+            </c-card>
+
+            <c-card>
+                <c-card.section>
+                    <div class="space-y-2">
+                        <div class="text-3xl">⚡</div>
+                        <h3 class="font-semibold">Server-Side</h3>
+                        <p class="text-sm text-muted-foreground">
+                            Pure Django templates, no React or Vue required
+                        </p>
+                    </div>
+                </c-card.section>
+            </c-card>
+        </div>
+    </div>
+</body>
+</html>

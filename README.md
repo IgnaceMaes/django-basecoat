@@ -15,3 +15,17 @@ Ready-made Basecoat components (shad/cn) for Django, powered by django-cotton
 
 - **[Setup Guide](https://github.com/IgnaceMaes/django-basecoat/blob/main/SETUP.md)** - Initial project configuration
 - **[Development Workflow](https://github.com/IgnaceMaes/django-basecoat/blob/main/WORKFLOW.md)** - How to contribute and work with the project
+
+## Demo Project
+
+Want to see django-basecoat in action? Check out the **[demo_project](demo_project/)** directory for a complete Django application showcasing all available components.
+
+To run the demo:
+
+```bash
+cd demo_project
+./quickstart.sh
+# or: make setup && make run
+```
+
+Then visit http://127.0.0.1:8000/ to see the component library in action!
