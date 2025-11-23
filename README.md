@@ -9,12 +9,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 # django-basecoat
 
-Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton
+Ready-made [Basecoat](https://basecoatui.com/) components ([shadcn/ui](https://ui.shadcn.com/)) for Django, powered by [django-cotton](https://django-cotton.com/).
 
 ## Installation
 
 ```bash
-uv add django-basecoat
+uv add django-cotton django-basecoat
 ```
 
 Add `django_basecoat` and `django_cotton` to your `INSTALLED_APPS`:
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     ...
     "django_cotton",
     "django_basecoat",
+    ...
 ]
 ```
 
@@ -40,7 +41,7 @@ Include the required CSS and JS in your base template (or use your own setup):
 Use components in your templates:
 
 ```django
-<c-button variant="primary">Click me</c-button>
+<c-button>Click me</c-button>
 <c-card>
     <c-card.header>Card Title</c-card.header>
     <c-card.section>Card content goes here</c-card.section>
