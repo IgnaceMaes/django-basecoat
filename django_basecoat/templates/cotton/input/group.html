@@ -1,22 +1,21 @@
 {% comment %}
 Input Group component - combining inputs with buttons, icons or text
 Usage:
-  <c-input_group>
-    <span class="absolute left-3">$</span>
-    <input type="text" class="input pl-8" placeholder="Amount" />
-  </c-input_group>
+  <c-input.group>
+    <c-input placeholder="Search..." />
+    <c-button variant="default">Search</c-button>
+  </c-input.group>
   
-  <c-input_group>
-    <input type="text" class="input pr-16" placeholder="Username" />
-    <button class="btn-sm absolute right-2">Copy</button>
-  </c-input_group>
+  <c-input.group>
+    <span class="px-3 flex items-center text-muted-foreground">https://</span>
+    <c-input placeholder="example.com" />
+  </c-input.group>
   
 Note: Basecoat doesn't have a dedicated input-group class.
-Use relative positioning on wrapper, absolute positioning for content,
-and adjust input padding. This is just a passthrough container.
+Use flex layout with appropriate styling for grouped inputs.
 {% endcomment %}
 <div 
-  class="relative {{ class }}"
+  class="flex overflow-hidden rounded-md border border-input shadow-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:disabled]:opacity-50 {{ class }}"
   {{ attrs }}
 >
   {{ slot }}

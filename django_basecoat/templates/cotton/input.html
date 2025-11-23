@@ -8,13 +8,13 @@ Usage:
   
 With input group:
   <c-input.group>
-    <span>$</span>
-    <c-input type="number" placeholder="0.00" />
+    <span class="px-3 flex items-center text-muted-foreground">https://</span>
+    <c-input placeholder="example.com" />
   </c-input.group>
 {% endcomment %}
 <input 
   type="{{ type|default:'text' }}"
-  class="input {{ class }}"
+  class="input [div_&]:border-0 [div_&]:shadow-none [div_&]:focus-visible:ring-0 [div_&]:focus-visible:ring-offset-0 [div_&]:rounded-none {{ class }}"
   {% if name %}name="{{ name }}"{% endif %}
   {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
   {% if value %}value="{{ value }}"{% endif %}

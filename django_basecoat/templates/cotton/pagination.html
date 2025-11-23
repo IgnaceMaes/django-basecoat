@@ -2,16 +2,22 @@
 Pagination component
 Usage:
   <c-pagination>
-    <c-button variant="outline">Previous</c-button>
-    <c-button variant="outline">1</c-button>
-    <c-button variant="outline">2</c-button>
-    <c-button variant="outline">3</c-button>
-    <c-button variant="outline">Next</c-button>
+    <a href="#" class="btn-ghost">
+      <svg>...</svg>
+      Previous
+    </a>
+    <a href="#" class="btn-icon-ghost">1</a>
+    <a href="#" class="btn-icon-outline">2</a>
+    <a href="#" class="btn-icon-ghost">3</a>
+    <a href="#" class="btn-ghost">
+      Next
+      <svg>...</svg>
+    </a>
   </c-pagination>
 {% endcomment %}
 <nav 
   aria-label="Pagination"
-  class="pagination {{ class }}"
+  class="flex items-center gap-1 {{ class }}"
   {{ attrs }}
 >
   {{ slot }}
