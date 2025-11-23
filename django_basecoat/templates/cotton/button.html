@@ -16,7 +16,7 @@ Usage:
   <c-button type="submit">Submit</c-button>
   
 Basecoat classes:
-- btn or btn-primary (primary)
+- btn or btn-primary (primary/default)
 - btn-secondary
 - btn-destructive
 - btn-outline
@@ -27,7 +27,7 @@ Basecoat classes:
 {% endcomment %}
 <button 
   type="{{ type|default:'button' }}"
-  class="{% if size and variant == 'icon' %}btn-{{ size }}-icon{% elif size and variant and variant != 'primary' and variant != 'default' %}btn-{{ size }}-{{ variant }}{% elif size %}btn-{{ size }}{% elif variant == 'icon' %}btn-icon{% elif variant and variant != 'primary' and variant != 'default' %}btn-{{ variant }}{% else %}btn{% endif %} [div_&]:rounded-none {{ class }}"
+  class="{% if size and variant == 'icon' %}btn-{{ size }}-icon{% elif size and variant and variant != 'primary' and variant != 'default' %}btn-{{ size }}-{{ variant }}{% elif size %}btn-{{ size }}{% elif variant == 'icon' %}btn-icon{% elif variant and variant != 'primary' and variant != 'default' %}btn-{{ variant }}{% else %}btn{% endif %} {{ class }}"
   {% if disabled %}disabled{% endif %}
   {% if pressed %}aria-pressed="true"{% endif %}
   {{ attrs }}

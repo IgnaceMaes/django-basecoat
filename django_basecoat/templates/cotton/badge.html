@@ -10,7 +10,7 @@ Usage:
 Available variants: badge (default/primary), badge-secondary, badge-destructive, badge-outline
 {% endcomment %}
 <span 
-  class="{% if variant and variant != 'primary' %}badge-{{ variant }}{% else %}badge{% endif %} {{ class }}"
+  class="{% if variant and variant != 'primary' and variant != 'default' %}badge-{{ variant }}{% else %}badge{% endif %} {{ class }}"
   {{ attrs }}
 >
   {{ slot }}

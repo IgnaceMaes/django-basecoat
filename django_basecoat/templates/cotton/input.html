@@ -14,7 +14,7 @@ With input group:
 {% endcomment %}
 <input 
   type="{{ type|default:'text' }}"
-  class="input [div_&]:border-0 [div_&]:shadow-none [div_&]:focus-visible:ring-0 [div_&]:focus-visible:ring-offset-0 [div_&]:rounded-none {{ class }}"
+  class="input {{ class }}"
   {% if name %}name="{{ name }}"{% endif %}
   {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
   {% if value %}value="{{ value }}"{% endif %}

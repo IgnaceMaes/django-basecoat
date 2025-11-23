@@ -3,7 +3,7 @@ Input Group component - combining inputs with buttons, icons or text
 Usage:
   <c-input.group>
     <c-input placeholder="Search..." />
-    <c-button variant="default">Search</c-button>
+    <c-button>Search</c-button>
   </c-input.group>
   
   <c-input.group>
@@ -15,7 +15,7 @@ Note: Basecoat doesn't have a dedicated input-group class.
 Use flex layout with appropriate styling for grouped inputs.
 {% endcomment %}
 <div 
-  class="flex overflow-hidden rounded-md border border-input shadow-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:disabled]:opacity-50 {{ class }}"
+  class="flex overflow-hidden rounded-md border border-input shadow-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring has-[:focus-visible]:ring-offset-2 has-[:disabled]:opacity-50 [&>input]:border-0 [&>input]:shadow-none [&>input]:ring-0 [&>input]:ring-offset-0 [&>input]:rounded-none [&>input]:focus-visible:ring-0 [&>input]:focus-visible:ring-offset-0 [&>button]:rounded-none {{ class }}"
   {{ attrs }}
 >
   {{ slot }}
