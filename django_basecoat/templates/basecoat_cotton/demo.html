@@ -1,0 +1,1185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Sink - Basecoat Component Library</title>
+
+    <script src="{% static 'api/js/tailwindcss-browser@4-20251027.js' %}"></script>
+
+    <!-- Basecoat CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/basecoat.cdn.min.css">
+    
+    <!-- Basecoat JS -->
+    <script src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/all.min.js" defer></script>
+    
+    <style>
+        c-card {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="p-8 max-w-7xl mx-auto space-y-8">
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold mb-2">Kitchen Sink</h1>
+        <p class="text-muted-foreground">A collection of all the components available in Basecoat.</p>
+    </header>
+
+    <c-toaster />
+
+    <!-- Accordion -->
+    <c-card>
+        <c-card.header>
+            <h2>Accordion</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-accordion>
+                <c-accordion.item summary="Is it accessible?">
+                    Yes. It adheres to the WAI-ARIA design pattern.
+                </c-accordion.item>
+                <c-accordion.item summary="Is it styled?">
+                    Yes. It comes with default styles that match the other components' aesthetics.
+                </c-accordion.item>
+                <c-accordion.item summary="Is it animated?">
+                    Yes. It's animated by default, but you can disable it if you prefer.
+                </c-accordion.item>
+            </c-accordion>
+            
+            <c-accordion class="mt-4">
+                <c-accordion.item summary="What are the key considerations when implementing a comprehensive enterprise-level authentication system?">
+                    When implementing an enterprise-level authentication system, consider multi-factor authentication, role-based access control, session management, password policies, OAuth integration, audit logging, and compliance with security standards.
+                </c-accordion.item>
+                <c-accordion.item summary="How does modern distributed system architecture handle eventual consistency and data synchronization across multiple regions?">
+                    Modern distributed systems use techniques like conflict-free replicated data types (CRDTs), vector clocks, and distributed consensus algorithms to handle eventual consistency.
+                </c-accordion.item>
+            </c-accordion>
+        </c-card.section>
+    </c-card>
+
+    <!-- Alert -->
+    <c-card>
+        <c-card.header>
+            <h2>Alert</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4">
+                <c-alert>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                    <h2>Success! Your changes have been saved</h2>
+                    <section>This is an alert with icon, title and description.</section>
+                </c-alert>
+                
+                <c-alert>
+                    <section>This is an alert with description and no title.</section>
+                </c-alert>
+                
+                <c-alert>
+                    <h2>This one has a title only. No description. No icon.</h2>
+                </c-alert>
+                
+                <c-alert>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                    <h2>Let's try one with icon and title.</h2>
+                </c-alert>
+                
+                <c-alert variant="destructive">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                    <h2>Something went wrong!</h2>
+                    <section>Your session has expired. Please log in again.</section>
+                </c-alert>
+                
+                <c-alert variant="destructive">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                    <h2>Plot Twist: This Alert is Actually Amber!</h2>
+                    <section>This one has custom colors for light and dark mode.</section>
+                </c-alert>
+            </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Alert Dialog -->
+    <c-card>
+        <c-card.header>
+            <h2>Alert Dialog</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-button variant="outline" onclick="document.getElementById('alert-dialog').showModal()">Open dialog</c-button>
+            
+            <dialog id="alert-dialog" class="dialog w-full sm:max-w-md" onclick="if (event.target === this) this.close()">
+                <div>
+                    <header>
+                        <h2>Are you absolutely sure?</h2>
+                        <p>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</p>
+                    </header>
+                    <footer class="flex gap-2 justify-end">
+                        <c-button variant="outline" type="button" onclick="document.getElementById('alert-dialog').close()">Cancel</c-button>
+                        <c-button variant="destructive" type="button" onclick="document.getElementById('alert-dialog').close()">Continue</c-button>
+                    </footer>
+                    <button type="button" class="dialog-close" onclick="document.getElementById('alert-dialog').close()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
+            </dialog>
+        </c-card.section>
+    </c-card>
+
+    <!-- Avatar -->
+    <c-card>
+        <c-card.header>
+            <h2>Avatar</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex flex-wrap gap-4">
+            <c-avatar src="https://github.com/hunvreus.png" alt="@hunvreus" />
+            <c-avatar>
+                <span class="flex items-center justify-center size-10 rounded-full bg-accent">CN</span>
+            </c-avatar>
+            <c-avatar src="https://github.com/shadcn.png" alt="@shadcn" />
+            <c-avatar src="https://github.com/adamwathan.png" alt="@adamwathan" />
+            <div class="flex -space-x-2">
+                <c-avatar class="border-2 border-background" src="https://github.com/hunvreus.png" alt="@hunvreus" />
+                <c-avatar class="border-2 border-background" src="https://github.com/shadcn.png" alt="@shadcn" />
+                <c-avatar class="border-2 border-background" src="https://github.com/adamwathan.png" alt="@adamwathan" />
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Badge -->
+    <c-card>
+        <c-card.header>
+            <h2>Badge</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex flex-wrap gap-4">
+            <c-badge variant="default">Primary</c-badge>
+            <c-badge variant="secondary">Secondary</c-badge>
+            <c-badge variant="outline">Outline</c-badge>
+            <c-badge variant="destructive">Destructive</c-badge>
+            <c-badge variant="secondary" class="bg-blue-500 text-white dark:bg-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                Badge
+            </c-badge>
+            <c-badge class="rounded-full h-5 min-w-5 px-1 font-mono tabular-nums">8</c-badge>
+            <c-badge variant="destructive" class="rounded-full h-5 min-w-5 px-1 font-mono tabular-nums">99</c-badge>
+            <c-badge variant="outline" class="rounded-full h-5 min-w-5 px-1 font-mono tabular-nums">20+</c-badge>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Breadcrumb -->
+    <c-card>
+        <c-card.header>
+            <h2>Breadcrumb</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-breadcrumb>
+            <c-breadcrumb.item href="#">Home</c-breadcrumb.item>
+            <c-breadcrumb.separator />
+            <c-breadcrumb.item href="#">Components</c-breadcrumb.item>
+            <c-breadcrumb.separator />
+            <c-breadcrumb.item current>Breadcrumb</c-breadcrumb.item>
+        </c-breadcrumb>
+        </c-card.section>
+    </c-card>
+
+    <!-- Button -->
+    <c-card>
+        <c-card.header>
+            <h2>Button</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4">
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default">Primary</c-button>
+                <c-button variant="outline">Outline</c-button>
+                <c-button variant="ghost">Ghost</c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </c-button>
+                <c-button variant="destructive">Danger</c-button>
+                <c-button variant="secondary">Secondary</c-button>
+                <c-button variant="link">Link</c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    Send
+                </c-button>
+                <c-button variant="outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    Learn more
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" disabled>
+                    <c-spinner size="sm" />
+                    Loading
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="sm">Primary</c-button>
+                <c-button variant="outline" size="sm">Outline</c-button>
+                <c-button variant="ghost" size="sm">Ghost</c-button>
+                <c-button variant="destructive" size="sm">Danger</c-button>
+                <c-button variant="secondary" size="sm">Secondary</c-button>
+                <c-button variant="link" size="sm">Link</c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    Send
+                </c-button>
+                <c-button variant="outline" size="sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    Learn more
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="sm" disabled>
+                    <c-spinner size="sm" />
+                    Loading
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="lg">Primary</c-button>
+                <c-button variant="outline" size="lg">Outline</c-button>
+                <c-button variant="ghost" size="lg">Ghost</c-button>
+                <c-button variant="icon" size="lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </c-button>
+                <c-button variant="destructive" size="lg">Danger</c-button>
+                <c-button variant="secondary" size="lg">Secondary</c-button>
+                <c-button variant="link" size="lg">Link</c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    Send
+                </c-button>
+                <c-button variant="outline" size="lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    Learn more
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="default" size="lg" disabled>
+                    <c-spinner />
+                    Loading
+                </c-button>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                </c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                </c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                </c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                </c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                </c-button>
+                <c-button variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </c-button>
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Button Group -->
+    <c-card>
+        <c-card.header>
+            <h2>Button Group</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-button.group>
+            <c-button variant="outline">Left</c-button>
+            <c-button variant="outline">Center</c-button>
+            <c-button variant="outline">Right</c-button>
+        </c-button.group>
+        </c-card.section>
+    </c-card>
+
+    <!-- Card -->
+    <c-card>
+        <c-card.header>
+            <h2>Card</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <c-card>
+                <c-card.header>
+                    <h2>Login to your account</h2>
+                    <p>Enter your details below to login to your account</p>
+                </c-card.header>
+                <c-card.section>
+                    <div class="grid gap-4">
+                        <div class="grid gap-2">
+                            <c-label for="email">Email</c-label>
+                            <c-input type="email" id="email" placeholder="name@example.com" />
+                        </div>
+                        <div class="grid gap-2">
+                            <c-label for="password">Password</c-label>
+                            <c-input type="password" id="password" />
+                        </div>
+                        <a href="#" class="text-sm underline">Forgot your password?</a>
+                    </div>
+                </c-card.section>
+                <c-card.footer class="grid gap-2">
+                    <c-button variant="default">Login</c-button>
+                    <c-button variant="outline">Login with Google</c-button>
+                    <p class="text-center text-sm text-muted-foreground">
+                        Don't have an account? <a href="#" class="underline">Sign up</a>
+                    </p>
+                </c-card.footer>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Meeting Notes</h2>
+                    <p>Transcript from the meeting with the client.</p>
+                </c-card.header>
+                <c-card.section>
+                    <p class="mb-3">Client requested dashboard redesign with focus on mobile responsiveness.</p>
+                    <ol class="list-decimal ml-4 space-y-1">
+                        <li>New analytics widgets for daily/weekly metrics</li>
+                        <li>Simplified navigation menu</li>
+                        <li>Dark mode support</li>
+                        <li>Timeline: 6 weeks</li>
+                        <li>Follow-up meeting scheduled for next Tuesday</li>
+                    </ol>
+                </c-card.section>
+                <c-card.footer>
+                    <div class="flex -space-x-2">
+                        <c-avatar class="border-2 border-background" src="https://github.com/hunvreus.png" alt="@hunvreus" />
+                        <c-avatar class="border-2 border-background" src="https://github.com/shadcn.png" alt="@shadcn" />
+                        <c-avatar class="border-2 border-background" src="https://github.com/adamwathan.png" alt="@adamwathan" />
+                    </div>
+                </c-card.footer>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Is this an image?</h2>
+                    <p>This is a card with an image.</p>
+                </c-card.header>
+                <c-card.section>
+                    <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Photo by Drew Beamer" class="w-full h-48 object-cover rounded" />
+                    <div class="flex gap-4 mt-4 text-sm">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                            <span>1</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span>2</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+                            <span>350m²</span>
+                        </div>
+                        <div class="flex items-center gap-2 ml-auto font-bold">
+                            $135,000
+                        </div>
+                    </div>
+                </c-card.section>
+            </c-card>
+            
+            <c-card>
+                <c-card.section>Content Only</c-card.section>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Header Only</h2>
+                    <p>This is a card with a header and a description.</p>
+                </c-card.header>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Header and Content</h2>
+                    <p>This is a card with a header and a content.</p>
+                </c-card.header>
+                <c-card.section>Content only.</c-card.section>
+            </c-card>
+            
+            <c-card>
+                <c-card.footer>Footer Only</c-card.footer>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Header + Footer</h2>
+                    <p>This is a card with a header and a footer.</p>
+                </c-card.header>
+                <c-card.footer>Footer Content</c-card.footer>
+            </c-card>
+            
+            <c-card>
+                <c-card.section>Content</c-card.section>
+                <c-card.footer>Footer</c-card.footer>
+            </c-card>
+            
+            <c-card>
+                <c-card.header>
+                    <h2>Header + Content + Footer</h2>
+                    <p>This is a card with a header, content and footer.</p>
+                </c-card.header>
+                <c-card.section>Content</c-card.section>
+                <c-card.footer>Footer</c-card.footer>
+            </c-card>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Checkbox -->
+    <c-card>
+        <c-card.header>
+            <h2>Checkbox</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4">
+            <label class="flex items-start gap-3">
+                <c-checkbox />
+                <div class="grid gap-1.5 leading-none">
+                    <span class="text-sm font-medium leading-none">
+                        By clicking this checkbox, you agree to the terms and conditions.
+                    </span>
+                </div>
+            </label>
+            
+            <div role="group" class="grid gap-2">
+                <label class="text-sm font-medium">Enable notifications</label>
+                <p class="text-sm text-muted-foreground">You can enable or disable notifications at any time.</p>
+                <label class="flex items-center gap-2">
+                    <c-checkbox />
+                    <span class="text-sm">Mobile push notifications</span>
+                </label>
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Combobox -->
+    <c-card>
+        <c-card.header>
+            <h2>Combobox</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex gap-4 flex-wrap">
+            <c-select name="framework" label="Next.js" searchable="true" search_placeholder="Search framework..." class="w-64">
+                <c-select.option value="nextjs">Next.js</c-select.option>
+                <c-select.option value="sveltekit">SvelteKit</c-select.option>
+                <c-select.option value="nuxt">Nuxt.js</c-select.option>
+                <c-select.option value="remix">Remix</c-select.option>
+                <c-select.option value="astro">Astro</c-select.option>
+            </c-select>
+            
+            <c-select name="timezone" label="(GMT-5) New York" searchable="true" class="w-64">
+                <c-select.option value="gmt-5">New York (GMT-5)</c-select.option>
+                <c-select.option value="gmt-8">Los Angeles (GMT-8)</c-select.option>
+                <c-select.option value="gmt+0">London (GMT+0)</c-select.option>
+                <c-select.option value="gmt+1">Paris (GMT+1)</c-select.option>
+                <c-select.option value="gmt+9">Tokyo (GMT+9)</c-select.option>
+            </c-select>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Dialog -->
+    <c-card>
+        <c-card.header>
+            <h2>Dialog</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex flex-wrap gap-4">
+            <c-button variant="outline" onclick="document.getElementById('edit-dialog').showModal()">Edit Profile</c-button>
+            <c-button variant="outline" onclick="document.getElementById('scrollable-dialog').showModal()">Scrollable Content</c-button>
+        </div>
+        
+        <c-dialog id="edit-dialog">
+            <c-dialog.header>
+                <h2>Edit profile</h2>
+                <p>Make changes to your profile here. Click save when you're done.</p>
+            </c-dialog.header>
+            <c-dialog.content>
+            <div class="grid gap-4">
+                <div class="grid gap-2">
+                    <c-label for="dialog-name">Name</c-label>
+                    <c-input id="dialog-name" value="Pedro Duarte" />
+                </div>
+                <div class="grid gap-2">
+                    <c-label for="dialog-username">Username</c-label>
+                    <c-input id="dialog-username" value="@peduarte" />
+                </div>
+            </div>
+            </c-dialog.content>
+            <c-dialog.footer>
+                <c-button type="button" onclick="document.getElementById('edit-dialog').close()">Save changes</c-button>
+            </c-dialog.footer>
+        </c-dialog>
+        
+        <c-dialog id="scrollable-dialog" class="w-full sm:max-w-[425px] max-h-[612px]">
+            <c-dialog.header>
+                <h2>Scrollable Content</h2>
+                <p>
+                    This dialog demonstrates scrollable content when it exceeds the viewport height.
+                </p>
+            </c-dialog.header>
+            <c-dialog.content>
+            <div class="space-y-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            </c-dialog.content>
+            <c-dialog.footer>
+                <c-button type="button" onclick="document.getElementById('scrollable-dialog').close()">Close</c-button>
+            </c-dialog.footer>
+        </c-dialog>
+        </c-card.section>
+    </c-card>
+
+    <!-- Dropdown Menu -->
+    <c-card>
+        <c-card.header>
+            <h2>Dropdown Menu</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex gap-4 flex-wrap">
+            <c-dropdown-menu>
+                <button type="button" class="btn-outline">Open</button>
+                <c-dropdown-menu.content>
+                    <c-dropdown-menu.item>Profile</c-dropdown-menu.item>
+                    <c-dropdown-menu.item>Billing</c-dropdown-menu.item>
+                    <c-dropdown-menu.item>Team</c-dropdown-menu.item>
+                    <c-dropdown-menu.item>Subscription</c-dropdown-menu.item>
+                    <c-dropdown-menu.separator />
+                    <c-dropdown-menu.item>Logout</c-dropdown-menu.item>
+                </c-dropdown-menu.content>
+            </c-dropdown-menu>
+            
+            <c-dropdown-menu>
+                <button type="button" class="btn-outline">Checkboxes</button>
+                <c-dropdown-menu.content>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-checkbox />
+                        <span>Status Bar</span>
+                    </label>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-checkbox checked />
+                        <span>Activity Bar</span>
+                    </label>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-checkbox />
+                        <span>Panel</span>
+                    </label>
+                </c-dropdown-menu.content>
+            </c-dropdown-menu>
+            
+            <c-dropdown-menu>
+                <button type="button" class="btn-outline">Radio Group</button>
+                <c-dropdown-menu.content>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-radio name="position" value="top" checked />
+                        <span>Top</span>
+                    </label>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-radio name="position" value="bottom" />
+                        <span>Bottom</span>
+                    </label>
+                    <label class="flex items-center gap-2 px-2 py-1.5">
+                        <c-radio name="position" value="right" />
+                        <span>Right</span>
+                    </label>
+                </c-dropdown-menu.content>
+            </c-dropdown-menu>
+            
+            <c-dropdown-menu>
+                <button type="button" class="flex items-center gap-2 btn-ghost">
+                    <c-avatar src="https://github.com/hunvreus.png" alt="@hunvreus" class="size-8" />
+                    <div class="text-left text-sm">
+                        <div class="font-medium">hunvreus</div>
+                        <div class="text-muted-foreground">hunvreus@example.com</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                </button>
+                <c-dropdown-menu.content>
+                    <div class="flex items-center gap-2 px-2 py-1.5 text-sm">
+                        <c-avatar src="https://github.com/hunvreus.png" alt="@hunvreus" class="size-8" />
+                        <div>
+                            <div class="font-medium">hunvreus</div>
+                            <div class="text-muted-foreground">hunvreus@example.com</div>
+                        </div>
+                    </div>
+                    <c-dropdown-menu.separator />
+                    <c-dropdown-menu.item>Profile</c-dropdown-menu.item>
+                    <c-dropdown-menu.item>Settings</c-dropdown-menu.item>
+                    <c-dropdown-menu.separator />
+                    <c-dropdown-menu.item>Logout</c-dropdown-menu.item>
+                </c-dropdown-menu.content>
+            </c-dropdown-menu>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Form -->
+    <c-card>
+        <c-card.header>
+            <h2>Form</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-form class="max-w-2xl space-y-6">
+            <div class="grid gap-2">
+                <c-label for="username">Username</c-label>
+                <c-input id="username" />
+                <p class="text-sm text-muted-foreground">This is your public display name.</p>
+            </div>
+            
+            <div class="grid gap-2">
+                <c-label for="form-email">Email</c-label>
+                <c-select name="email-select" label="Select verified email">
+                    <c-select.option value="user@example.com">user@example.com</c-select.option>
+                    <c-select.option value="personal@example.com">personal@example.com</c-select.option>
+                </c-select>
+                <p class="text-sm text-muted-foreground">You can manage email addresses in your email settings.</p>
+            </div>
+            
+            <div class="grid gap-2">
+                <c-label for="bio">Bio</c-label>
+                <c-textarea id="bio" placeholder="Tell us about yourself" />
+                <p class="text-sm text-muted-foreground">You can @mention other users and organizations.</p>
+            </div>
+            
+            <div class="grid gap-2">
+                <c-label>Notify me about...</c-label>
+                <div class="space-y-2">
+                    <label class="flex items-center gap-2">
+                        <c-checkbox checked />
+                        <span class="text-sm">All new messages</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox />
+                        <span class="text-sm">Direct messages and mentions</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox />
+                        <span class="text-sm">Nothing</span>
+                    </label>
+                </div>
+                <p class="text-sm text-muted-foreground">You can manage your mobile notifications in the mobile settings page.</p>
+            </div>
+            
+            <div class="grid gap-2">
+                <c-label>Sidebar</c-label>
+                <div class="space-y-2">
+                    <label class="flex items-center gap-2">
+                        <c-checkbox checked />
+                        <span class="text-sm">Recents</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox checked />
+                        <span class="text-sm">Home</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox />
+                        <span class="text-sm">Applications</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox checked />
+                        <span class="text-sm">Desktop</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox checked />
+                        <span class="text-sm">Downloads</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                        <c-checkbox />
+                        <span class="text-sm">Documents</span>
+                    </label>
+                </div>
+                <p class="text-sm text-muted-foreground">Select the items you want to display in the sidebar.</p>
+            </div>
+            
+            <div class="grid gap-2">
+                <c-label for="dob">Date of birth</c-label>
+                <c-input type="date" id="dob" />
+                <p class="text-sm text-muted-foreground">Your date of birth is used to calculate your age.</p>
+            </div>
+            
+            <div class="border rounded-lg p-4 space-y-3">
+                <h3 class="text-base font-medium">Email Notifications</h3>
+                <label class="flex items-center gap-2">
+                    <c-checkbox />
+                    <span class="text-sm">Receive emails about new products, features, and more.</span>
+                </label>
+                <label class="flex items-center gap-2">
+                    <c-checkbox />
+                    <span class="text-sm">Receive emails about your account activity and security.</span>
+                </label>
+            </div>
+            
+            <c-button type="submit">Submit</c-button>
+        </c-form>
+        </c-card.section>
+    </c-card>
+
+    <!-- Input -->
+    <c-card>
+        <c-card.header>
+            <h2>Input</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <c-input type="email" placeholder="Email" />
+            <c-input type="password" placeholder="Password" />
+            <c-input placeholder="Disabled" disabled />
+            <c-input type="date" />
+            <c-input type="datetime-local" />
+            <c-input type="month" />
+            <c-input type="week" />
+            <c-input type="time" />
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Input Group -->
+    <c-card>
+        <c-card.header>
+            <h2>Input Group</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <c-input.group>
+                <c-input placeholder="Search..." />
+                <c-button variant="default">Search</c-button>
+            </c-input.group>
+            
+            <c-input.group>
+                <span class="px-3 flex items-center text-muted-foreground">https://</span>
+                <c-input placeholder="example.com" />
+            </c-input.group>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Label -->
+    <c-card>
+        <c-card.header>
+            <h2>Label</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <div class="grid gap-2">
+                <c-label for="label1">Username</c-label>
+                <c-input id="label1" />
+            </div>
+            <div class="grid gap-2">
+                <c-label for="label2">Disabled</c-label>
+                <c-input id="label2" disabled />
+            </div>
+            <div class="grid gap-2">
+                <c-label for="label3">Message</c-label>
+                <c-textarea id="label3" />
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Pagination -->
+    <c-card>
+        <c-card.header>
+            <h2>Pagination</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-pagination>
+            <a href="#" class="btn-outline btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            </a>
+            <a href="#" class="btn-ghost">1</a>
+            <a href="#" class="btn">2</a>
+            <a href="#" class="btn-ghost">3</a>
+            <span class="px-2">…</span>
+            <a href="#" class="btn-outline btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+        </c-pagination>
+        </c-card.section>
+    </c-card>
+
+    <!-- Popover -->
+    <c-card>
+        <c-card.header>
+            <h2>Popover</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-popover>
+            <button type="button" class="btn-outline">Open popover</button>
+            <c-popover.content>
+                <div class="space-y-2">
+                    <h4 class="font-medium">Dimensions</h4>
+                    <div class="grid gap-2">
+                        <div class="grid grid-cols-3 items-center gap-4">
+                            <c-label for="width">Width</c-label>
+                            <c-input id="width" value="100%" class="col-span-2" />
+                        </div>
+                        <div class="grid grid-cols-3 items-center gap-4">
+                            <c-label for="height">Height</c-label>
+                            <c-input id="height" value="25px" class="col-span-2" />
+                        </div>
+                    </div>
+                </div>
+            </c-popover.content>
+        </c-popover>
+        </c-card.section>
+    </c-card>
+
+    <!-- Radio Group -->
+    <c-card>
+        <c-card.header>
+            <h2>Radio Group</h2>
+        </c-card.header>
+        <c-card.section>
+            <fieldset class="grid gap-3 max-w-sm">
+            <label class="label">
+                <c-radio id="radio1" value="default" name="radio-demo" checked />
+                <span>Default</span>
+            </label>
+            <label class="label">
+                <c-radio id="radio2" value="comfortable" name="radio-demo" />
+                <span>Comfortable</span>
+            </label>
+            <label class="label">
+                <c-radio id="radio3" value="compact" name="radio-demo" />
+                <span>Compact</span>
+            </label>
+        </fieldset>
+        </c-card.section>
+    </c-card>
+
+    <!-- Select -->
+    <c-card>
+        <c-card.header>
+            <h2>Select</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <c-select name="fruit" label="Blueberry">
+                <c-select.option value="apple">Apple</c-select.option>
+                <c-select.option value="banana">Banana</c-select.option>
+                <c-select.option value="blueberry" selected>Blueberry</c-select.option>
+                <c-select.option value="grapes">Grapes</c-select.option>
+                <c-select.option value="pineapple">Pineapple</c-select.option>
+            </c-select>
+            
+            <c-select name="items" label="Item 0">
+                <c-select.option value="item0">Item 0</c-select.option>
+                <c-select.option value="item1">Item 1</c-select.option>
+                <c-select.option value="item2">Item 2</c-select.option>
+            </c-select>
+            
+            <c-select name="disabled-select" label="Disabled" disabled>
+                <c-select.option value="opt1">Option 1</c-select.option>
+            </c-select>
+            
+            <c-select name="long-options" label="Bar" searchable="true">
+                <c-select.option value="foo">Foo</c-select.option>
+                <c-select.option value="bar">Bar</c-select.option>
+                <c-select.option value="baz">Baz</c-select.option>
+                <c-select.option value="qux">Qux</c-select.option>
+            </c-select>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Separator -->
+    <c-card>
+        <c-card.header>
+            <h2>Separator</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="space-y-1">
+            <h4 class="text-sm font-medium leading-none">Radix Primitives</h4>
+            <p class="text-sm text-muted-foreground">An open-source UI component library.</p>
+        </div>
+        <c-separator class="my-4" />
+        <div class="flex h-5 items-center space-x-4 text-sm">
+            <div>Blog</div>
+            <c-separator orientation="vertical" />
+            <div>Docs</div>
+            <c-separator orientation="vertical" />
+            <div>Source</div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Skeleton -->
+    <c-card>
+        <c-card.header>
+            <h2>Skeleton</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex items-center space-x-4">
+            <c-skeleton class="h-12 w-12 rounded-full" />
+            <div class="space-y-2">
+                <c-skeleton class="h-4 w-[250px]" />
+                <c-skeleton class="h-4 w-[200px]" />
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Slider -->
+    <c-card>
+        <c-card.header>
+            <h2>Slider</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <c-slider value="50" />
+            <c-slider value="25" disabled />
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Spinner -->
+    <c-card>
+        <c-card.header>
+            <h2>Spinner</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex gap-4 items-center">
+            <c-spinner size="sm" />
+            <c-spinner />
+            <c-spinner size="lg" />
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Switch -->
+    <c-card>
+        <c-card.header>
+            <h2>Switch</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <label class="flex items-center justify-between">
+                <div>
+                    <div class="font-medium">Airplane Mode</div>
+                    <div class="text-sm text-muted-foreground">Enable airplane mode to disable all wireless connections</div>
+                </div>
+                <c-switch />
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Disabled</span>
+                <c-switch disabled />
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Checked</span>
+                <c-switch checked />
+            </label>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Table -->
+    <c-card>
+        <c-card.header>
+            <h2>Table</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-table>
+            <thead>
+                <tr>
+                    <th>Invoice</th>
+                    <th>Status</th>
+                    <th>Method</th>
+                    <th class="text-right">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="font-medium">INV001</td>
+                    <td><c-badge variant="default">Paid</c-badge></td>
+                    <td>Credit Card</td>
+                    <td class="text-right">$250.00</td>
+                </tr>
+                <tr>
+                    <td class="font-medium">INV002</td>
+                    <td><c-badge variant="warning">Pending</c-badge></td>
+                    <td>PayPal</td>
+                    <td class="text-right">$150.00</td>
+                </tr>
+                <tr>
+                    <td class="font-medium">INV003</td>
+                    <td><c-badge variant="destructive">Unpaid</c-badge></td>
+                    <td>Bank Transfer</td>
+                    <td class="text-right">$350.00</td>
+                </tr>
+                <tr>
+                    <td class="font-medium">INV004</td>
+                    <td><c-badge variant="default">Paid</c-badge></td>
+                    <td>Credit Card</td>
+                    <td class="text-right">$450.00</td>
+                </tr>
+            </tbody>
+        </c-table>
+        </c-card.section>
+    </c-card>
+
+    <!-- Tabs -->
+    <c-card>
+        <c-card.header>
+            <h2>Tabs</h2>
+        </c-card.header>
+        <c-card.section>
+            <c-tabs id="demo-tabs">
+            <c-tabs.list>
+                <c-tab id="demo-tabs-tab-1" controls="demo-tabs-panel-1" selected>Account</c-tab>
+                <c-tab id="demo-tabs-tab-2" controls="demo-tabs-panel-2">Password</c-tab>
+            </c-tabs.list>
+            <c-tab.panel id="demo-tabs-panel-1" aria_labelledby="demo-tabs-tab-1" aria_selected="true">
+                <c-card>
+                    <c-card.header>
+                        <h3 class="text-lg font-semibold">Account</h3>
+                        <p class="text-sm text-muted-foreground">Make changes to your account here. Click save when you're done.</p>
+                    </c-card.header>
+                    <c-card.section>
+                        <div class="grid gap-4">
+                            <div class="grid gap-2">
+                                <c-label for="tab-name">Name</c-label>
+                                <c-input id="tab-name" value="Pedro Duarte" />
+                            </div>
+                            <div class="grid gap-2">
+                                <c-label for="tab-username">Username</c-label>
+                                <c-input id="tab-username" value="@peduarte" />
+                            </div>
+                        </div>
+                    </c-card.section>
+                    <c-card.footer>
+                        <c-button>Save changes</c-button>
+                    </c-card.footer>
+                </c-card>
+            </c-tab.panel>
+            <c-tab.panel id="demo-tabs-panel-2" aria_labelledby="demo-tabs-tab-2" hidden>
+                <c-card>
+                    <c-card.header>
+                        <h3 class="text-lg font-semibold">Password</h3>
+                        <p class="text-sm text-muted-foreground">Change your password here. After saving, you'll be logged out.</p>
+                    </c-card.header>
+                    <c-card.section>
+                        <div class="grid gap-4">
+                            <div class="grid gap-2">
+                                <c-label for="tab-current">Current password</c-label>
+                                <c-input id="tab-current" type="password" />
+                            </div>
+                            <div class="grid gap-2">
+                                <c-label for="tab-new">New password</c-label>
+                                <c-input id="tab-new" type="password" />
+                            </div>
+                        </div>
+                    </c-card.section>
+                    <c-card.footer>
+                        <c-button>Save password</c-button>
+                    </c-card.footer>
+                </c-card>
+            </c-tab.panel>
+        </c-tabs>
+        </c-card.section>
+    </c-card>
+
+    <!-- Textarea -->
+    <c-card>
+        <c-card.header>
+            <h2>Textarea</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="grid gap-4 max-w-sm">
+            <div class="grid gap-2">
+                <c-label for="textarea-example">Your message</c-label>
+                <c-textarea id="textarea-example" placeholder="Type your message here." />
+                <p class="text-sm text-muted-foreground">Your message will be copied to the support team.</p>
+            </div>
+            <div class="grid gap-2">
+                <c-label for="textarea-disabled">Disabled</c-label>
+                <c-textarea id="textarea-disabled" placeholder="This textarea is disabled" disabled />
+            </div>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Toast -->
+    <c-card>
+        <c-card.header>
+            <h2>Toast</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex gap-2">
+            <c-button onclick="Basecoat.toast('Event has been created', { variant: 'default' })">Default</c-button>
+            <c-button variant="destructive" onclick="Basecoat.toast('Your session has expired', { variant: 'destructive' })">Destructive</c-button>
+            <c-button variant="outline" onclick="Basecoat.toast('Event scheduled for next Monday', { description: 'We will send you a reminder 1 hour before the event.' })">With Description</c-button>
+        </div>
+        </c-card.section>
+    </c-card>
+
+    <!-- Tooltip -->
+    <c-card>
+        <c-card.header>
+            <h2>Tooltip</h2>
+        </c-card.header>
+        <c-card.section>
+            <div class="flex gap-4">
+            <c-button 
+                variant="outline"
+                data-tooltip="Add to library"
+                data-side="top">
+                Hover me (top)
+            </c-button>
+            <c-button 
+                variant="outline"
+                data-tooltip="Delete item"
+                data-side="right">
+                Hover me (right)
+            </c-button>
+            <c-button 
+                variant="outline"
+                data-tooltip="More information"
+                data-side="bottom">
+                Hover me (bottom)
+            </c-button>
+            <c-button 
+                variant="outline"
+                data-tooltip="Settings"
+                data-side="left">
+                Hover me (left)
+            </c-button>
+        </div>
+        </c-card.section>
+    </c-card>
+
+</body>
+</html>

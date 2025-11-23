@@ -1,0 +1,18 @@
+{% comment %}
+Form component
+Usage:
+  <c-form action="/submit" method="post">
+    <c-field>...</c-field>
+    <c-button type="submit">Submit</c-button>
+  </c-form>
+{% endcomment %}
+<form 
+  class="form {{ class }}"
+  {% if action %}action="{{ action }}"{% endif %}
+  method="{{ method|default:'post' }}"
+  {% if enctype %}enctype="{{ enctype }}"{% endif %}
+  {{ attrs }}
+>
+  {% csrf_token %}
+  {{ slot }}
+</form>

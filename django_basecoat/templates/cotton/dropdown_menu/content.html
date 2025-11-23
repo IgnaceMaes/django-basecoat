@@ -1,0 +1,21 @@
+{% comment %}
+Dropdown Menu content component
+Usage: <c-dropdown-menu-content>...</c-dropdown-menu-content>
+
+Generates the popover wrapper with data-popover attribute and menu role inside.
+The menu_id and trigger_id are optional for ARIA linking.
+{% endcomment %}
+<div 
+  data-popover
+  aria-hidden="true"
+  class="min-w-56 {{ class }}"
+  {{ attrs }}
+>
+  <div 
+    role="menu"
+    {% if menu_id %}id="{{ menu_id }}"{% endif %}
+    {% if trigger_id %}aria-labelledby="{{ trigger_id }}"{% endif %}
+  >
+    {{ slot }}
+  </div>
+</div>

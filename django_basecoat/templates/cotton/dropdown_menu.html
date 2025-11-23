@@ -1,0 +1,19 @@
+{% comment %}
+Dropdown Menu component (requires JS)
+Usage:
+  <c-dropdown-menu>
+    <c-button>Open Menu</c-button>
+    <c-dropdown-menu-content>
+      <c-dropdown-menu-item>Action 1</c-dropdown-menu-item>
+      <c-dropdown-menu-item>Action 2</c-dropdown-menu-item>
+      <c-dropdown-menu-separator />
+      <c-dropdown-menu-item disabled>Disabled</c-dropdown-menu-item>
+    </c-dropdown-menu-content>
+  </c-dropdown-menu>
+{% endcomment %}
+<div 
+  class="dropdown-menu {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

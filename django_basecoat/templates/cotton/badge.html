@@ -1,0 +1,16 @@
+{% comment %}
+Badge component
+Usage:
+  <c-badge>Default</c-badge>
+  <c-badge variant="secondary">Secondary</c-badge>
+  <c-badge variant="destructive">Destructive</c-badge>
+  <c-badge variant="outline">Outline</c-badge>
+  
+Available variants: badge (default), badge-secondary, badge-destructive, badge-outline
+{% endcomment %}
+<span 
+  class="{% if variant %}badge-{{ variant }}{% else %}badge{% endif %} {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</span>

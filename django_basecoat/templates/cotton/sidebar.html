@@ -1,0 +1,17 @@
+{% comment %}
+Sidebar component (requires JS)
+Usage:
+  <c-sidebar>
+    <nav>
+      <a href="/" aria-current="page">Dashboard</a>
+      <a href="/settings">Settings</a>
+      <a href="/profile">Profile</a>
+    </nav>
+  </c-sidebar>
+{% endcomment %}
+<aside 
+  class="sidebar {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</aside>

@@ -1,0 +1,23 @@
+{% comment %}
+Command component (requires JS) - command palette with search
+Usage:
+  <c-command>
+    <c-command-input placeholder="Search commands..." />
+    <c-command-menu>
+      <c-command-item>Command 1</c-command-item>
+      <c-command-item>Command 2</c-command-item>
+      <c-command-item disabled>Disabled</c-command-item>
+    </c-command-menu>
+  </c-command>
+  
+  Or in a dialog:
+  <c-dialog class="command-dialog">
+    <c-command>...</c-command>
+  </c-dialog>
+{% endcomment %}
+<div 
+  class="command {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

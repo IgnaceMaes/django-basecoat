@@ -1,0 +1,10 @@
+{% comment %}
+Command input component
+Usage: <c-command-input placeholder="Search..." />
+{% endcomment %}
+<header class="{{ class }}" {{ attrs }}>
+  <input 
+    type="text" 
+    placeholder="{{ placeholder|default:'Search...' }}"
+  />
+</header>

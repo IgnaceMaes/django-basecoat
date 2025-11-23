@@ -1,0 +1,14 @@
+{% comment %}
+Skeleton component - loading placeholder
+Usage:
+  <c-skeleton class="h-4 w-[250px]" />
+  <c-skeleton class="size-10 rounded-full" />
+  
+Note: Basecoat doesn't have a dedicated skeleton class.
+Uses animate-pulse and bg-accent with Tailwind utilities.
+rounded-md is applied by default unless overridden.
+{% endcomment %}
+<div 
+  class="bg-accent animate-pulse rounded-md {{ class }}"
+  {{ attrs }}
+></div>

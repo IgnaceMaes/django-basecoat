@@ -1,0 +1,25 @@
+{% comment %}
+Tooltip component - tooltip is applied via data attributes, not a wrapper
+Usage:
+  You should apply tooltip directly to the element, not wrap it.
+  
+  In HTML: <button data-tooltip="Helpful text" data-side="bottom">Hover me</button>
+  
+  With django-cotton, pass attrs to your component:
+  <c-button attrs='data-tooltip="Helpful text" data-side="bottom"'>Hover me</c-button>
+  
+  Available data-side: top (default), bottom, left, right
+  Available data-align: start, center (default), end
+  
+  This component is just a passthrough for convenience but tooltip 
+  should really be applied as data attributes on the target element.
+{% endcomment %}
+<span 
+  class="{{ class }}"
+  {% if text %}data-tooltip="{{ text }}"{% endif %}
+  {% if side %}data-side="{{ side }}"{% endif %}
+  {% if align %}data-align="{{ align }}"{% endif %}
+  {{ attrs }}
+>
+  {{ slot }}
+</span>

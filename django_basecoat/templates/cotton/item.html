@@ -1,0 +1,36 @@
+{% comment %}
+Item component - versatile component for displaying content
+Usage:
+  <c-item>
+    <h3>Item Title</h3>
+    <p>Item description</p>
+  </c-item>
+  
+  <c-item href="/profile">
+    <img src="avatar.png" alt="Avatar" />
+    <div>
+      <h3>User Name</h3>
+      <p>user@example.com</p>
+    </div>
+  </c-item>
+  
+Note: Basecoat doesn't have a dedicated item class.
+Items are pure HTML composition using semantic elements and Tailwind utilities.
+This component renders as <article> or <a> based on href presence.
+{% endcomment %}
+{% if href %}
+<a 
+  href="{{ href }}"
+  class="flex items-start gap-4 rounded-lg border p-4 transition-colors hover:bg-accent {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</a>
+{% else %}
+<article 
+  class="flex items-start gap-4 rounded-lg border p-4 {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</article>
+{% endif %}

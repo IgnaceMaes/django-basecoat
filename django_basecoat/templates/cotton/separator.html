@@ -1,0 +1,12 @@
+{% comment %}
+Separator component
+Usage:
+  <c-separator />
+  <c-separator orientation="vertical" />
+{% endcomment %}
+<hr 
+  role="separator"
+  {% if orientation == 'vertical' %}aria-orientation="vertical"{% endif %}
+  class="{{ class }}"
+  {{ attrs }}
+/>

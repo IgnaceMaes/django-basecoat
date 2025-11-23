@@ -1,0 +1,24 @@
+{% comment %}
+Button Group component - groups related buttons together
+Usage:
+  <c-button_group>
+    <c-button variant="outline">Archive</c-button>
+    <c-button variant="outline">Report</c-button>
+  </c-button_group>
+  <c-button_group orientation="vertical">...</c-button_group>
+  
+With separator:
+  <c-button_group>
+    <c-button variant="outline">Copy</c-button>
+    <hr role="separator">
+    <c-button variant="outline">Paste</c-button>
+  </c-button_group>
+{% endcomment %}
+<div 
+  role="group"
+  class="button-group {{ class }}"
+  {% if orientation == 'vertical' %}data-orientation="vertical"{% endif %}
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

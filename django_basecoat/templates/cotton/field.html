@@ -1,0 +1,29 @@
+{% comment %}
+Field component - wrapper for label, input, helper text, and error messages
+Usage:
+  <c-field>
+    <c-label for="email">Email</c-label>
+    <c-input type="email" id="email" name="email" aria-describedby="email-hint" />
+    <c-field-hint id="email-hint">Enter your email address</c-field-hint>
+  </c-field>
+  
+  <c-field orientation="horizontal">
+    <section>
+      <label for="marketing">Marketing emails</label>
+      <p>Receive emails about new products</p>
+    </section>
+    <input type="checkbox" id="marketing" role="switch">
+  </c-field>
+  
+Basecoat field structure:
+  <div role="group" class="field" data-orientation="horizontal">
+    Elements are styled automatically based on purpose.
+{% endcomment %}
+<div 
+  role="group"
+  class="field {{ class }}"
+  {% if orientation %}data-orientation="{{ orientation }}"{% endif %}
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

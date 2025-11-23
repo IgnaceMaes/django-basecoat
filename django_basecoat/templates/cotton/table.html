@@ -1,0 +1,24 @@
+{% comment %}
+Table component
+Usage:
+  <c-table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>john@example.com</td>
+      </tr>
+    </tbody>
+  </c-table>
+{% endcomment %}
+<table 
+  class="table {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</table>

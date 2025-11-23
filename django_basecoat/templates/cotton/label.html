@@ -1,0 +1,12 @@
+{% comment %}
+Label component
+Usage:
+  <c-label for="username">Username</c-label>
+{% endcomment %}
+<label 
+  class="label {{ class }}"
+  {% if for %}for="{{ for }}"{% endif %}
+  {{ attrs }}
+>
+  {{ slot }}
+</label>

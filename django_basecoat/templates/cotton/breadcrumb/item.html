@@ -1,0 +1,15 @@
+{% comment %}
+Breadcrumb item component - single item in breadcrumb navigation
+Usage: 
+  <c-breadcrumb-item href="/page">Page</c-breadcrumb-item>
+  <c-breadcrumb-item>Current Page</c-breadcrumb-item> (no href for current page)
+  
+Note: Separators must be added manually between items as separate <li> elements
+{% endcomment %}
+<li class="inline-flex items-center gap-1.5 {{ class }}" {{ attrs }}>
+  {% if href %}
+    <a href="{{ href }}" class="hover:text-foreground transition-colors">{{ slot }}</a>
+  {% else %}
+    <span {% if current %}aria-current="page" class="text-foreground font-normal"{% endif %}>{{ slot }}</span>
+  {% endif %}
+</li>

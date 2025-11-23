@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Basecoat Components{% endblock %}</title>
+    
+    <!-- Basecoat CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@latest/dist/basecoat.cdn.min.css">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Toast Container (required for toast notifications) -->
+    <c-toaster />
+    
+    {% block content %}{% endblock %}
+    
+    <!-- Basecoat JS (for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/basecoat-css@latest/dist/js/all.min.js" defer></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

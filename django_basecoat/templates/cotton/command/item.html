@@ -1,0 +1,14 @@
+{% comment %}
+Command item component
+Usage: <c-command-item>Command</c-command-item>
+{% endcomment %}
+<button 
+  role="menuitem"
+  type="button"
+  {% if disabled %}aria-disabled="true"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</button>

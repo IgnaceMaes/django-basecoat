@@ -1,0 +1,18 @@
+{% comment %}
+Pagination component
+Usage:
+  <c-pagination>
+    <c-button variant="outline">Previous</c-button>
+    <c-button variant="outline">1</c-button>
+    <c-button variant="outline">2</c-button>
+    <c-button variant="outline">3</c-button>
+    <c-button variant="outline">Next</c-button>
+  </c-pagination>
+{% endcomment %}
+<nav 
+  aria-label="Pagination"
+  class="pagination {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</nav>

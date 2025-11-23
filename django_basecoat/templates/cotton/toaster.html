@@ -1,0 +1,25 @@
+{% comment %}
+Toast container component (requires JS)
+Place this once in your layout template.
+
+Usage in template:
+  <c-toaster />
+
+Show toast from JavaScript:
+  document.dispatchEvent(new CustomEvent('basecoat:toast', {
+    detail: {
+      config: {
+        title: 'Success',
+        description: 'Your changes have been saved.',
+        category: 'success'
+      }
+    }
+  }))
+  
+Categories: success, error, warning, info
+{% endcomment %}
+<section 
+  id="toaster"
+  class="{{ class }}"
+  {{ attrs }}
+></section>

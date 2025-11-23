@@ -1,0 +1,36 @@
+{% comment %}
+Button component with variants and sizes
+Usage:
+  <c-button>Button</c-button>  (default is btn)
+  <c-button variant="primary">Primary</c-button>
+  <c-button variant="secondary">Secondary</c-button>
+  <c-button variant="destructive">Destructive</c-button>
+  <c-button variant="outline">Outline</c-button>
+  <c-button variant="ghost">Ghost</c-button>
+  <c-button variant="link">Link</c-button>
+  <c-button variant="icon">Icon</c-button>
+  <c-button size="sm">Small</c-button>
+  <c-button size="lg">Large</c-button>
+  <c-button size="sm" variant="icon">Small Icon</c-button>
+  <c-button disabled>Disabled</c-button>
+  <c-button type="submit">Submit</c-button>
+  
+Basecoat classes:
+- btn or btn-primary (primary)
+- btn-secondary
+- btn-destructive
+- btn-outline
+- btn-ghost
+- btn-link
+- btn-icon (can combine: btn-icon-destructive, btn-sm-icon-outline, etc.)
+- btn-sm, btn-lg (sizes)
+{% endcomment %}
+<button 
+  type="{{ type|default:'button' }}"
+  class="{% if size and variant == 'icon' %}btn-{{ size }}-icon{% elif size and variant and variant != 'primary' and variant != 'default' %}btn-{{ size }}-{{ variant }}{% elif size %}btn-{{ size }}{% elif variant == 'icon' %}btn-icon{% elif variant and variant != 'primary' and variant != 'default' %}btn-{{ variant }}{% else %}btn{% endif %} {{ class }}"
+  {% if disabled %}disabled{% endif %}
+  {% if pressed %}aria-pressed="true"{% endif %}
+  {{ attrs }}
+>
+  {{ slot }}
+</button>

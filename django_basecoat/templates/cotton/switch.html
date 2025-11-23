@@ -1,0 +1,17 @@
+{% comment %}
+Switch component (checkbox with role="switch")
+Usage:
+  <c-switch name="notifications" />
+  <c-switch name="darkmode" checked />
+{% endcomment %}
+<input 
+  type="checkbox"
+  role="switch"
+  class="input {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if value %}value="{{ value }}"{% endif %}
+  {% if checked %}checked{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if required %}required{% endif %}
+  {{ attrs }}
+/>

@@ -1,0 +1,14 @@
+{% comment %}
+Select option component
+Usage: <c-select-option value="us" label="United States">United States</c-select-option>
+{% endcomment %}
+<div 
+  role="option" 
+  data-value="{{ value }}" 
+  data-label="{{ label }}"
+  {% if disabled %}aria-disabled="true"{% endif %}
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

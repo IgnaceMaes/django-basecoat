@@ -1,0 +1,18 @@
+{% comment %}
+Input component
+Usage:
+  <c-input type="text" name="username" placeholder="Enter username" />
+  <c-input type="email" name="email" />
+  <c-input type="password" name="password" />
+  <c-input type="text" name="name" value="John" />
+{% endcomment %}
+<input 
+  type="{{ type|default:'text' }}"
+  class="input {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+  {% if value %}value="{{ value }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if required %}required{% endif %}
+  {{ attrs }}
+/>

@@ -1,0 +1,17 @@
+{% comment %}
+Tab component
+Usage: <c-tab id="tab-1" controls="panel-1" selected>Tab 1</c-tab>
+Note: id and aria-controls are required for proper ARIA labeling
+{% endcomment %}
+<button 
+  role="tab"
+  type="button"
+  {% if id %}id="{{ id }}"{% endif %}
+  {% if controls %}aria-controls="{{ controls }}"{% endif %}
+  {% if selected %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+  tabindex="0"
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</button>

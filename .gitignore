@@ -226,3 +226,5 @@ fabric.properties
 bandit-report.json
 
 .history/
+
+.DS_Store

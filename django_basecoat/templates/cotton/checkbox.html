@@ -1,0 +1,16 @@
+{% comment %}
+Checkbox component
+Usage:
+  <c-checkbox name="agree" />
+  <c-checkbox name="subscribe" checked />
+{% endcomment %}
+<input 
+  type="checkbox"
+  class="input {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if value %}value="{{ value }}"{% endif %}
+  {% if checked %}checked{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if required %}required{% endif %}
+  {{ attrs }}
+/>

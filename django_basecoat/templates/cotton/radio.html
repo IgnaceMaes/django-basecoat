@@ -1,0 +1,17 @@
+{% comment %}
+Radio component
+Usage:
+  <c-radio name="color" value="red" />
+  <c-radio name="color" value="blue" checked />
+{% endcomment %}
+<input 
+  type="radio"
+  class="input {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if value %}value="{{ value }}"{% endif %}
+  {% if id %}id="{{ id }}"{% endif %}
+  {% if checked %}checked{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if required %}required{% endif %}
+  {{ attrs }}
+/>

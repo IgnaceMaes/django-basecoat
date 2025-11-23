@@ -1,0 +1,15 @@
+{% comment %}
+Progress component - visual progress indicator
+Usage:
+  <c-progress value="50" />
+  <c-progress value="75" max="100" />
+  
+Note: Basecoat doesn't have a dedicated progress component.
+Use two divs: outer for track, inner for indicator with inline width style.
+<div class="bg-primary/20 relative h-2 w-full overflow-hidden rounded-full">
+  <div class="bg-primary h-full transition-all" style="width: 66%"></div>
+</div>
+{% endcomment %}
+<div class="bg-primary/20 relative h-2 w-full overflow-hidden rounded-full {{ class }}" {{ attrs }}>
+  <div class="bg-primary h-full transition-all" style="width: {{ value|default:'0' }}{% if max %}{{ value|default:'0'|floatformat:0 }}%{% endif %}"></div>
+</div>

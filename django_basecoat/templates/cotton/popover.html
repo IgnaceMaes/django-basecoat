@@ -1,0 +1,16 @@
+{% comment %}
+Popover component (requires JS)
+Usage:
+  <c-popover>
+    <c-button>Open Popover</c-button>
+    <c-popover-content>
+      <p>Popover content goes here</p>
+    </c-popover-content>
+  </c-popover>
+{% endcomment %}
+<div 
+  class="popover {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

@@ -1,0 +1,20 @@
+{% comment %}
+Alert component - displays a callout for user attention
+Usage:
+  <c-alert title="Success!">Your changes have been saved</c-alert>
+  <c-alert variant="destructive" title="Error">Something went wrong</c-alert>
+  <c-alert title="Info" icon="true">With an icon</c-alert>
+  
+Or use custom content in slot:
+  <c-alert>
+    <h2>Custom Title</h2>
+    <section>Custom description</section>
+  </c-alert>
+{% endcomment %}
+<div 
+  role="alert"
+  class="{% if variant == 'destructive' %}alert-destructive{% else %}alert{% endif %} {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

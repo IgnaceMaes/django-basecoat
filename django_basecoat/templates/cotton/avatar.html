@@ -1,0 +1,18 @@
+{% comment %}
+Avatar component
+Usage:
+  <c-avatar src="/path/to/image.jpg" alt="User Name" />
+  <c-avatar src="/path/to/image.jpg" alt="User Name">
+    <img src="/path/to/image.jpg" alt="User Name" />
+  </c-avatar>
+{% endcomment %}
+<div 
+  class="avatar {{ class }}"
+  {{ attrs }}
+>
+  {% if src %}
+    <img src="{{ src }}" alt="{{ alt|default:'' }}" />
+  {% else %}
+    {{ slot }}
+  {% endif %}
+</div>

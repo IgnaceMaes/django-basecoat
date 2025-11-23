@@ -1,0 +1,20 @@
+{% comment %}
+Tabs component (requires JS)
+Usage:
+  <c-tabs>
+    <c-tabs-list>
+      <c-tab controls="panel-1" selected>Tab 1</c-tab>
+      <c-tab controls="panel-2">Tab 2</c-tab>
+      <c-tab controls="panel-3">Tab 3</c-tab>
+    </c-tabs-list>
+    <c-tab-panel id="panel-1">Content 1</c-tab-panel>
+    <c-tab-panel id="panel-2" hidden>Content 2</c-tab-panel>
+    <c-tab-panel id="panel-3" hidden>Content 3</c-tab-panel>
+  </c-tabs>
+{% endcomment %}
+<div 
+  class="tabs {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

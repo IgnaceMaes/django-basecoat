@@ -1,0 +1,25 @@
+{% comment %}
+Slider component - range input (requires custom JS for styling)
+Usage:
+  <c-slider name="volume" min="0" max="100" value="50" />
+  
+Note: Basecoat doesn't have a slider class. Use 'input' class and add JS:
+  const updateSlider = (el) => {
+    const min = parseFloat(el.min || 0);
+    const max = parseFloat(el.max || 100);
+    const value = parseFloat(el.value);
+    const percent = (max === min) ? 0 : ((value - min) / (max - min)) * 100;
+    el.style.setProperty('--slider-value', `${percent}%`);
+  };
+{% endcomment %}
+<input 
+  type="range"
+  class="input {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  min="{{ min|default:'0' }}"
+  max="{{ max|default:'100' }}"
+  value="{{ value|default:'50' }}"
+  {% if step %}step="{{ step }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {{ attrs }}
+/>

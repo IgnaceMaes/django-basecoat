@@ -1,0 +1,44 @@
+{% comment %}
+Dialog component - modal dialog using native <dialog> element
+Usage:
+  <c-dialog id="my-dialog" aria_labelledby="dialog-title" aria_describedby="dialog-desc">
+    <c-dialog-header>
+      <h2 id="dialog-title">Dialog Title</h2>
+      <p id="dialog-desc">Dialog description</p>
+    </c-dialog-header>
+    <c-dialog-content>
+      <p>Dialog content goes here</p>
+    </c-dialog-content>
+    <c-dialog-footer>
+      <button class="btn-outline" onclick="this.closest('dialog').close()">Cancel</button>
+      <button class="btn">Confirm</button>
+    </c-dialog-footer>
+  </c-dialog>
+  
+  Open with: document.getElementById('my-dialog').showModal()
+  Close with: dialog.close() or clicking the backdrop
+  
+The dialog uses native HTML <dialog> and requires:
+  - id attribute for targeting
+  - aria-labelledby pointing to title id
+  - aria-describedby pointing to description id (optional)
+  - onclick="if (event.target === this) this.close()" on dialog for backdrop close
+{% endcomment %}
+<dialog 
+  {% if id %}id="{{ id }}"{% endif %}
+  class="dialog {{ class }}"
+  {% if aria_labelledby %}aria-labelledby="{{ aria_labelledby }}"{% endif %}
+  {% if aria_describedby %}aria-describedby="{{ aria_describedby }}"{% endif %}
+  onclick="if (event.target === this) this.close()"
+  {{ attrs }}
+>
+  <div>
+    {{ slot }}
+    <button type="button" aria-label="Close dialog" onclick="this.closest('dialog').close()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </button>
+  </div>
+</dialog>

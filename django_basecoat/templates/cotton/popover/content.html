@@ -1,0 +1,12 @@
+{% comment %}
+Popover content component
+Usage: <c-popover-content>Content here</c-popover-content>
+{% endcomment %}
+<section 
+  data-popover
+  aria-hidden="true"
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</section>

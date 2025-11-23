@@ -1,0 +1,15 @@
+{% comment %}
+Textarea component
+Usage:
+  <c-textarea name="description" placeholder="Enter description" />
+  <c-textarea name="bio" rows="5">Default text</c-textarea>
+{% endcomment %}
+<textarea 
+  class="textarea {{ class }}"
+  {% if name %}name="{{ name }}"{% endif %}
+  {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+  {% if rows %}rows="{{ rows }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if required %}required{% endif %}
+  {{ attrs }}
+>{{ slot }}</textarea>

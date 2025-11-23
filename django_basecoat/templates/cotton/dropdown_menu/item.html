@@ -1,0 +1,16 @@
+{% comment %}
+Dropdown Menu item component
+Usage: 
+  <c-dropdown-menu-item>Action</c-dropdown-menu-item>
+  <c-dropdown-menu-item disabled>Disabled</c-dropdown-menu-item>
+  
+Note: Uses <div> not <button> per Basecoat spec
+{% endcomment %}
+<div 
+  role="menuitem"
+  {% if disabled %}aria-disabled="true"{% endif %}
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

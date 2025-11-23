@@ -1,0 +1,17 @@
+{% comment %}
+Tab panel component
+Usage: <c-tab-panel id="panel-1" aria_labelledby="tab-1">Content</c-tab-panel>
+Note: Set aria_labelledby to match the corresponding tab button's id
+{% endcomment %}
+<div 
+  role="tabpanel"
+  {% if id %}id="{{ id }}"{% endif %}
+  {% if aria_labelledby %}aria-labelledby="{{ aria_labelledby }}"{% endif %}
+  {% if aria_selected %}aria-selected="{{ aria_selected }}"{% else %}aria-selected="false"{% endif %}
+  tabindex="-1"
+  {% if hidden %}hidden{% endif %}
+  class="{{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

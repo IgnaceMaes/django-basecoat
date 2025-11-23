@@ -1,0 +1,18 @@
+{% comment %}
+Radio Group component - fieldset wrapper for radio buttons
+Usage:
+  <c-radio_group name="theme">
+    <label class="label"><input type="radio" name="theme" value="default" class="input"> Default</label>
+    <label class="label"><input type="radio" name="theme" value="comfortable" class="input" checked> Comfortable</label>
+    <label class="label"><input type="radio" name="theme" value="compact" class="input"> Compact</label>
+  </c-radio_group>
+  
+Note: Basecoat doesn't have a radio-group class. Use <fieldset class="grid gap-3">
+and individual <label> elements with input[type="radio"].
+{% endcomment %}
+<fieldset 
+  class="grid gap-3 {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</fieldset>

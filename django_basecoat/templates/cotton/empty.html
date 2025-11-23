@@ -1,0 +1,21 @@
+{% comment %}
+Empty state component - placeholder for empty content
+Usage:
+  <c-empty>
+    <svg>...</svg>
+    <header>
+      <h3>No items found</h3>
+      <p>Get started by creating a new item.</p>
+    </header>
+    <c-button variant="primary">Create Item</c-button>
+  </c-empty>
+  
+Note: Basecoat doesn't have a dedicated empty component.
+Empty states are pure HTML with flex utilities for centered content.
+{% endcomment %}
+<div 
+  class="flex flex-col items-center justify-center gap-4 text-center p-8 {{ class }}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>
