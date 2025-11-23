@@ -24,12 +24,16 @@
         </div>
 
         <div class="flex justify-center gap-4">
-            <c-button href="{% url 'demo_app:demo' %}" variant="default" size="lg">
-                View Component Demo
-            </c-button>
-            <c-button href="https://github.com/IgnaceMaes/django-basecoat" variant="outline" size="lg">
-                View on GitHub
-            </c-button>
+            <a href="{% url 'demo_app:demo' %}">
+                <c-button variant="default" size="lg">
+                    View Component Demo
+                </c-button>
+            </a>
+            <a href="https://github.com/IgnaceMaes/django-basecoat">
+                <c-button variant="outline" size="lg">
+                    View on GitHub
+                </c-button>
+            </a>
         </div>
 
         <div class="pt-12">
