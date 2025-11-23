@@ -12,7 +12,8 @@ Usage:
 
 Note: Basecoat doesn't have a dedicated accordion component.
 It uses native <details> elements with animations.
+The .accordion class is optional and enables single-item-open behavior via JS.
 {% endcomment %}
-<div class="accordion {{ class }}" {{ attrs }}>
+<section class="accordion {{ class }}" {{ attrs }}>
   {{ slot }}
-</div>
+</section>

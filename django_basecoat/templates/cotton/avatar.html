@@ -1,18 +1,20 @@
 {% comment %}
-Avatar component
+Avatar component - just an img element with rounded styling
 Usage:
   <c-avatar src="/path/to/image.jpg" alt="User Name" />
-  <c-avatar src="/path/to/image.jpg" alt="User Name">
-    <img src="/path/to/image.jpg" alt="User Name" />
-  </c-avatar>
+  <c-avatar src="/path/to/image.jpg" alt="User Name" size="size-12" />
+  
+Note: Basecoat doesn't have a dedicated avatar class.
+Avatars are just img elements styled with Tailwind utility classes.
+Default size is size-8 (32px). Override with size prop or class.
 {% endcomment %}
-<div 
-  class="avatar {{ class }}"
-  {{ attrs }}
->
-  {% if src %}
-    <img src="{{ src }}" alt="{{ alt|default:'' }}" />
-  {% else %}
-    {{ slot }}
-  {% endif %}
-</div>
+{% if src %}
+  <img 
+    src="{{ src }}" 
+    alt="{{ alt|default:'' }}" 
+    class="{% if size %}{{ size }}{% else %}size-8{% endif %} shrink-0 object-cover rounded-full {{ class }}"
+    {{ attrs }}
+  />
+{% else %}
+  {{ slot }}
+{% endif %}

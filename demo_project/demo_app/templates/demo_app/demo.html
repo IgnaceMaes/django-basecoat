@@ -153,7 +153,7 @@
         </c-card.header>
         <c-card.section>
             <div class="flex flex-wrap gap-4">
-            <c-badge variant="default">Primary</c-badge>
+            <c-badge variant="primary">Primary</c-badge>
             <c-badge variant="secondary">Secondary</c-badge>
             <c-badge variant="outline">Outline</c-badge>
             <c-badge variant="destructive">Destructive</c-badge>
@@ -817,15 +817,19 @@
         </c-card.header>
         <c-card.section>
             <c-pagination>
-            <a href="#" class="btn-outline btn-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            <a href="#" class="btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                Previous
             </a>
-            <a href="#" class="btn-ghost">1</a>
-            <a href="#" class="btn">2</a>
-            <a href="#" class="btn-ghost">3</a>
-            <span class="px-2">…</span>
-            <a href="#" class="btn-outline btn-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            <a href="#" class="btn-icon-ghost">1</a>
+            <a href="#" class="btn-icon-outline">2</a>
+            <a href="#" class="btn-icon-ghost">3</a>
+            <div class="size-9 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+            </div>
+            <a href="#" class="btn-ghost">
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </a>
         </c-pagination>
         </c-card.section>
@@ -1024,13 +1028,13 @@
             <tbody>
                 <tr>
                     <td class="font-medium">INV001</td>
-                    <td><c-badge variant="default">Paid</c-badge></td>
+                    <td><c-badge variant="primary">Paid</c-badge></td>
                     <td>Credit Card</td>
                     <td class="text-right">$250.00</td>
                 </tr>
                 <tr>
                     <td class="font-medium">INV002</td>
-                    <td><c-badge variant="warning">Pending</c-badge></td>
+                    <td><c-badge variant="secondary">Pending</c-badge></td>
                     <td>PayPal</td>
                     <td class="text-right">$150.00</td>
                 </tr>
@@ -1042,7 +1046,7 @@
                 </tr>
                 <tr>
                     <td class="font-medium">INV004</td>
-                    <td><c-badge variant="default">Paid</c-badge></td>
+                    <td><c-badge variant="primary">Paid</c-badge></td>
                     <td>Credit Card</td>
                     <td class="text-right">$450.00</td>
                 </tr>
@@ -1139,9 +1143,9 @@
         </c-card.header>
         <c-card.section>
             <div class="flex gap-2">
-            <c-button onclick="Basecoat.toast('Event has been created', { variant: 'default' })">Default</c-button>
-            <c-button variant="destructive" onclick="Basecoat.toast('Your session has expired', { variant: 'destructive' })">Destructive</c-button>
-            <c-button variant="outline" onclick="Basecoat.toast('Event scheduled for next Monday', { description: 'We will send you a reminder 1 hour before the event.' })">With Description</c-button>
+            <c-button onclick="document.dispatchEvent(new CustomEvent('basecoat:toast', { detail: { config: { title: 'Event has been created', category: 'success' } } }))">Success</c-button>
+            <c-button variant="destructive" onclick="document.dispatchEvent(new CustomEvent('basecoat:toast', { detail: { config: { title: 'Your session has expired', category: 'error' } } }))">Error</c-button>
+            <c-button variant="outline" onclick="document.dispatchEvent(new CustomEvent('basecoat:toast', { detail: { config: { title: 'Event scheduled', description: 'We will send you a reminder 1 hour before the event.', category: 'info' } } }))">With Description</c-button>
         </div>
         </c-card.section>
     </c-card>

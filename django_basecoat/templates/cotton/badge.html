@@ -2,14 +2,15 @@
 Badge component
 Usage:
   <c-badge>Default</c-badge>
+  <c-badge variant="primary">Primary</c-badge>
   <c-badge variant="secondary">Secondary</c-badge>
   <c-badge variant="destructive">Destructive</c-badge>
   <c-badge variant="outline">Outline</c-badge>
   
-Available variants: badge (default), badge-secondary, badge-destructive, badge-outline
+Available variants: badge (default/primary), badge-secondary, badge-destructive, badge-outline
 {% endcomment %}
 <span 
-  class="{% if variant %}badge-{{ variant }}{% else %}badge{% endif %} {{ class }}"
+  class="{% if variant and variant != 'primary' %}badge-{{ variant }}{% else %}badge{% endif %} {{ class }}"
   {{ attrs }}
 >
   {{ slot }}
