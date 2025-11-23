@@ -95,7 +95,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"
-STATICFILES_DIRS = []
+STATICFILES_DIRS: list[str] = []
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

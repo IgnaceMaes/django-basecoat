@@ -36,7 +36,8 @@ dev = [
     "pytest-asyncio==1.1.0",
     "pytest-cov==6.2.1",
     "ruff==0.12.7",
-    "bandit==1.8.0"
+    "bandit==1.8.0",
+    "django-stubs>=5.1.1"
 ]
 
 [project.urls]
@@ -129,6 +130,15 @@ disallow_untyped_decorators = false
 [[tool.mypy.overrides]]
 module = [
     "examples.*",
+]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = false
+disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+module = [
+    "demo_project.*",
 ]
 disallow_untyped_defs = false
 disallow_incomplete_defs = false
