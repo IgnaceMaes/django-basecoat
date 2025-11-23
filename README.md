@@ -11,6 +11,44 @@
 
 Ready-made Basecoat components (shadcn/ui) for Django, powered by django-cotton
 
+## Installation
+
+```bash
+uv add django-basecoat
+```
+
+Add `django_basecoat` and `django_cotton` to your `INSTALLED_APPS`:
+
+```python
+INSTALLED_APPS = [
+    ...
+    "django_cotton",
+    "django_basecoat",
+]
+```
+
+## Quick Start
+
+Include the required CSS and JS in your base template (or use your own setup):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/basecoat.cdn.min.css">
+<script src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/all.min.js" defer></script>
+```
+
+Use components in your templates:
+
+```django
+<c-button variant="primary">Click me</c-button>
+<c-card>
+    <c-card.header>Card Title</c-card.header>
+    <c-card.section>Card content goes here</c-card.section>
+</c-card>
+```
+
+Available components include: accordion, alert, avatar, badge, breadcrumb, button, card, checkbox, dialog, dropdown menu, input, select, table, tabs, and more.
+
 ## Documentation
 
 - **[Setup Guide](https://github.com/IgnaceMaes/django-basecoat/blob/main/SETUP.md)** - Initial project configuration
