@@ -5,6 +5,12 @@ Usage:
   <c-input type="email" name="email" />
   <c-input type="password" name="password" />
   <c-input type="text" name="name" value="John" />
+  
+With input group:
+  <c-input.group>
+    <span>$</span>
+    <c-input type="number" placeholder="0.00" />
+  </c-input.group>
 {% endcomment %}
 <input 
   type="{{ type|default:'text' }}"

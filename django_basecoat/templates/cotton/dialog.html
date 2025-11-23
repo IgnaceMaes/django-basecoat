@@ -2,17 +2,17 @@
 Dialog component - modal dialog using native <dialog> element
 Usage:
   <c-dialog id="my-dialog" aria_labelledby="dialog-title" aria_describedby="dialog-desc">
-    <c-dialog-header>
+    <c-dialog.header>
       <h2 id="dialog-title">Dialog Title</h2>
       <p id="dialog-desc">Dialog description</p>
-    </c-dialog-header>
-    <c-dialog-content>
+    </c-dialog.header>
+    <c-dialog.content>
       <p>Dialog content goes here</p>
-    </c-dialog-content>
-    <c-dialog-footer>
+    </c-dialog.content>
+    <c-dialog.footer>
       <button class="btn-outline" onclick="this.closest('dialog').close()">Cancel</button>
       <button class="btn">Confirm</button>
-    </c-dialog-footer>
+    </c-dialog.footer>
   </c-dialog>
   
   Open with: document.getElementById('my-dialog').showModal()
