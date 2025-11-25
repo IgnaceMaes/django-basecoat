@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/IgnaceMaes/django-basecoat/compare/v0.2.0...v0.3.0) (2025-11-25)
+
+
+### Features
+
+* build via django_distill ([808c139](https://github.com/IgnaceMaes/django-basecoat/commit/808c1399d23b1e6fa25fcdaf4a761aed3ff448fe))
+
+
+### Documentation
+
+* build docs site django_distill and deploy to Pages ([9a06137](https://github.com/IgnaceMaes/django-basecoat/commit/9a06137fd24487b2ace0d72dec82b4543fb71c66))
+
 ## [0.2.0](https://github.com/IgnaceMaes/django-basecoat/compare/v0.1.0...v0.2.0) (2025-11-23)
 
 
