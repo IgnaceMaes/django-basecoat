@@ -228,3 +228,7 @@ bandit-report.json
 .history/
 
 .DS_Store
+
+
+demo_project/output/
+demo_project/staticfiles/

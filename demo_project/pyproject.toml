@@ -6,6 +6,8 @@ requires-python = ">=3.11"
 dependencies = [
     "django>=4.2,<5.1",
     "django-cotton>=1.0.0",
+    "django-distill>=3.2.7",
+    "django-basecoat",
 ]
 
 [tool.uv]

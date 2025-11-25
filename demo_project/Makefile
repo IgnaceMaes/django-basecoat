@@ -15,6 +15,9 @@ migrate: ## Run database migrations
 run: ## Start the development server
 	uv run python manage.py runserver
 
+build: ## Build static site with django-distill
+	uv run python manage.py distill-local --collectstatic --force
+
 clean: ## Remove database and cache files
 	rm -f db.sqlite3
 	rm -rf .venv

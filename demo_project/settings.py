@@ -5,7 +5,7 @@ Django settings for demo_project.
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-demo-key-change-this-in-production"  # noqa: S105
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third-party apps
+    "django_distill",
     "django_cotton",
     # Local apps
     "django_basecoat",
@@ -40,7 +41,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "demo_project.urls"
+ROOT_URLCONF = "urls"
 
 TEMPLATES = [
     {
@@ -61,13 +62,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "demo_project.wsgi.application"
+WSGI_APPLICATION = "wsgi.application"
 
 # Database
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "demo_project" / "db.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -95,6 +96,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS: list[str] = []
 
 # Default primary key field type
@@ -102,3 +104,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django Cotton settings
 COTTON_DIR = "cotton"
+
+# Django Distill settings
+DISTILL_DIR = BASE_DIR / "output"
+DISTILL_SKIP_ADMIN_DIRS = True
